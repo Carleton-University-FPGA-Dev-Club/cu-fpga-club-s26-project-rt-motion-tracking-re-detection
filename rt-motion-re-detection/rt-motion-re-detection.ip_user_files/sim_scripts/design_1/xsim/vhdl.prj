@@ -1,0 +1,24 @@
+vhdl xil_defaultlib  \
+"../../../../rt-motion-re-detection.gen/sources_1/bd/design_1/ipshared/f99d/src/DVI_Constants.vhd" \
+"../../../../rt-motion-re-detection.gen/sources_1/bd/design_1/ipshared/f99d/src/ChannelBond.vhd" \
+"../../../../rt-motion-re-detection.gen/sources_1/bd/design_1/ipshared/f99d/src/SyncAsync.vhd" \
+"../../../../rt-motion-re-detection.gen/sources_1/bd/design_1/ipshared/f99d/src/GlitchFilter.vhd" \
+"../../../../rt-motion-re-detection.gen/sources_1/bd/design_1/ipshared/f99d/src/TWI_SlaveCtl.vhd" \
+"../../../../rt-motion-re-detection.gen/sources_1/bd/design_1/ipshared/f99d/src/EEPROM_8b.vhd" \
+"../../../../rt-motion-re-detection.gen/sources_1/bd/design_1/ipshared/f99d/src/InputSERDES.vhd" \
+"../../../../rt-motion-re-detection.gen/sources_1/bd/design_1/ipshared/f99d/src/PhaseAlign.vhd" \
+"../../../../rt-motion-re-detection.gen/sources_1/bd/design_1/ipshared/f99d/src/ResyncToBUFG.vhd" \
+"../../../../rt-motion-re-detection.gen/sources_1/bd/design_1/ipshared/f99d/src/SyncAsyncReset.vhd" \
+"../../../../rt-motion-re-detection.gen/sources_1/bd/design_1/ipshared/f99d/src/SyncBase.vhd" \
+"../../../../rt-motion-re-detection.gen/sources_1/bd/design_1/ipshared/f99d/src/TMDS_Clocking.vhd" \
+"../../../../rt-motion-re-detection.gen/sources_1/bd/design_1/ipshared/f99d/src/TMDS_Decoder.vhd" \
+"../../../../rt-motion-re-detection.gen/sources_1/bd/design_1/ipshared/f99d/src/dvi2rgb.vhd" \
+"../../../bd/design_1/ip/design_1_dvi2rgb_0_0/sim/design_1_dvi2rgb_0_0.vhd" \
+"../../../../rt-motion-re-detection.gen/sources_1/bd/design_1/ipshared/d57c/src/ClockGen.vhd" \
+"../../../../rt-motion-re-detection.gen/sources_1/bd/design_1/ipshared/d57c/src/OutputSERDES.vhd" \
+"../../../../rt-motion-re-detection.gen/sources_1/bd/design_1/ipshared/d57c/src/TMDS_Encoder.vhd" \
+"../../../../rt-motion-re-detection.gen/sources_1/bd/design_1/ipshared/d57c/src/rgb2dvi.vhd" \
+"../../../bd/design_1/ip/design_1_rgb2dvi_0_0/sim/design_1_rgb2dvi_0_0.vhd" \
+
+# Do not sort compile order
+nosort

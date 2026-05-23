@@ -1,0 +1,14 @@
+verilog xil_defaultlib --include "D:/Xilinx/Vivado/2023.1/data/xilinx_vip/include" --include "../../../../rt-motion-re-detection.gen/sources_1/bd/design_1/ipshared/ec67/hdl" --include "../../../../rt-motion-re-detection.gen/sources_1/bd/design_1/ipshared/aed8/hdl" --include "../../../../rt-motion-re-detection.gen/sources_1/bd/design_1/ip/design_1_dvi2rgb_0_0/src/ila_pixclk/hdl/verilog" --include "../../../../rt-motion-re-detection.gen/sources_1/bd/design_1/ip/design_1_dvi2rgb_0_0/src/ila_refclk/hdl/verilog" --include "../../../../rt-motion-re-detection.gen/sources_1/bd/design_1/ipshared/30ef" \
+"../../../bd/design_1/ip/design_1_processing_system7_0_0/sim/design_1_processing_system7_0_0.v" \
+"../../../bd/design_1/ip/design_1_dvi2rgb_0_0/src/ila_pixclk/sim/ila_pixclk.v" \
+"../../../bd/design_1/ip/design_1_dvi2rgb_0_0/src/ila_refclk/sim/ila_refclk.v" \
+"../../../bd/design_1/ip/design_1_util_vector_logic_0_0/sim/design_1_util_vector_logic_0_0.v" \
+"../../../bd/design_1/ip/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0_clk_wiz.v" \
+"../../../bd/design_1/ip/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0.v" \
+"../../../bd/design_1/ip/design_1_xlconstant_0_0/sim/design_1_xlconstant_0_0.v" \
+"../../../bd/design_1/sim/design_1.v" \
+
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

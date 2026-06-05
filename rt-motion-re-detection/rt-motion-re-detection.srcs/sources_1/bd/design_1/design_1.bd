@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xE56B5C980CE45039",
+      "boundary_crc": "0x10D19F8D1E0EAEDD",
       "device": "xc7z020clg400-1",
       "gen_directory": "../../../../rt-motion-re-detection.gen/sources_1/bd/design_1",
       "name": "design_1",
@@ -16,7 +16,8 @@
       "clk_wiz_0": "",
       "dvi2rgb_0": "",
       "processing_system7_0": "",
-      "rgb2dvi_0": ""
+      "rgb2dvi_0": "",
+      "grayscale_0": ""
     },
     "interface_ports": {
       "DDR": {
@@ -298,6 +299,9 @@
             "value_src": "default"
           }
         }
+      },
+      "sw0_0": {
+        "direction": "I"
       }
     },
     "components": {
@@ -1548,6 +1552,67 @@
         "xci_name": "design_1_rgb2dvi_0_0",
         "xci_path": "ip\\design_1_rgb2dvi_0_0\\design_1_rgb2dvi_0_0.xci",
         "inst_hier_path": "rgb2dvi_0"
+      },
+      "grayscale_0": {
+        "vlnv": "xilinx.com:module_ref:grayscale:1.0",
+        "xci_name": "design_1_grayscale_0_0",
+        "xci_path": "ip\\design_1_grayscale_0_0\\design_1_grayscale_0_0.xci",
+        "inst_hier_path": "grayscale_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "grayscale",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "pclk": {
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "100000000",
+                "value_src": "default_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "default_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "design_1_dvi2rgb_0_0_PixelClk",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "sw0": {
+            "direction": "I"
+          },
+          "vid_pVDE": {
+            "direction": "I"
+          },
+          "vid_pHSync": {
+            "direction": "I"
+          },
+          "vid_pVSync": {
+            "direction": "I"
+          },
+          "vid_pData_in": {
+            "direction": "I",
+            "left": "23",
+            "right": "0"
+          },
+          "vid_pVDE_out": {
+            "direction": "O"
+          },
+          "vid_pHSync_out": {
+            "direction": "O"
+          },
+          "vid_pVSync_out": {
+            "direction": "O"
+          },
+          "vid_pData_out": {
+            "direction": "O",
+            "left": "23",
+            "right": "0"
+          }
+        }
       }
     },
     "interface_nets": {
@@ -1561,12 +1626,6 @@
         "interface_ports": [
           "DDC_0",
           "dvi2rgb_0/DDC"
-        ]
-      },
-      "dvi2rgb_0_RGB": {
-        "interface_ports": [
-          "dvi2rgb_0/RGB",
-          "rgb2dvi_0/RGB"
         ]
       },
       "processing_system7_0_DDR": {
@@ -1604,7 +1663,8 @@
       "dvi2rgb_0_PixelClk": {
         "ports": [
           "dvi2rgb_0/PixelClk",
-          "rgb2dvi_0/PixelClk"
+          "rgb2dvi_0/PixelClk",
+          "grayscale_0/pclk"
         ]
       },
       "dvi2rgb_0_pLocked": {
@@ -1613,10 +1673,64 @@
           "util_vector_logic_0/Op1"
         ]
       },
+      "dvi2rgb_0_vid_pData": {
+        "ports": [
+          "dvi2rgb_0/vid_pData",
+          "grayscale_0/vid_pData_in"
+        ]
+      },
+      "dvi2rgb_0_vid_pHSync": {
+        "ports": [
+          "dvi2rgb_0/vid_pHSync",
+          "grayscale_0/vid_pHSync"
+        ]
+      },
+      "dvi2rgb_0_vid_pVDE": {
+        "ports": [
+          "dvi2rgb_0/vid_pVDE",
+          "grayscale_0/vid_pVDE"
+        ]
+      },
+      "dvi2rgb_0_vid_pVSync": {
+        "ports": [
+          "dvi2rgb_0/vid_pVSync",
+          "grayscale_0/vid_pVSync"
+        ]
+      },
+      "grayscale_0_vid_pData_out": {
+        "ports": [
+          "grayscale_0/vid_pData_out",
+          "rgb2dvi_0/vid_pData"
+        ]
+      },
+      "grayscale_0_vid_pHSync_out": {
+        "ports": [
+          "grayscale_0/vid_pHSync_out",
+          "rgb2dvi_0/vid_pHSync"
+        ]
+      },
+      "grayscale_0_vid_pVDE_out": {
+        "ports": [
+          "grayscale_0/vid_pVDE_out",
+          "rgb2dvi_0/vid_pVDE"
+        ]
+      },
+      "grayscale_0_vid_pVSync_out": {
+        "ports": [
+          "grayscale_0/vid_pVSync_out",
+          "rgb2dvi_0/vid_pVSync"
+        ]
+      },
       "processing_system7_0_FCLK_CLK0": {
         "ports": [
           "processing_system7_0/FCLK_CLK0",
           "processing_system7_0/M_AXI_GP0_ACLK"
+        ]
+      },
+      "sw0_0_1": {
+        "ports": [
+          "sw0_0",
+          "grayscale_0/sw0"
         ]
       },
       "util_vector_logic_0_Res": {

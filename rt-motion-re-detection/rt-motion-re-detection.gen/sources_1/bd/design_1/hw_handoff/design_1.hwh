@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sat May 23 14:46:37 2026" VIVADOVERSION="2023.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Jun  5 10:42:12 2026" VIVADOVERSION="2023.1">
 
   <SYSTEMINFO ARCH="zynq" BOARD="digilentinc.com:zybo-z7-20:part0:1.2" DEVICE="7z020" NAME="design_1" PACKAGE="clg400" SPEEDGRADE="-1"/>
 
@@ -182,6 +182,11 @@
     <PORT CLKFREQUENCY="125000000" DIR="I" NAME="clk_in1_0" SIGIS="clk" SIGNAME="External_Ports_clk_in1_0">
       <CONNECTIONS>
         <CONNECTION INSTANCE="clk_wiz_0" PORT="clk_in1"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="sw0_0" SIGIS="undef" SIGNAME="External_Ports_sw0_0">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="grayscale_0" PORT="sw0"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
@@ -908,27 +913,28 @@
         </PORT>
         <PORT DIR="O" LEFT="23" NAME="vid_pData" RIGHT="0" SIGIS="undef" SIGNAME="dvi2rgb_0_vid_pData">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="rgb2dvi_0" PORT="vid_pData"/>
+            <CONNECTION INSTANCE="grayscale_0" PORT="vid_pData_in"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="vid_pVDE" SIGIS="undef" SIGNAME="dvi2rgb_0_vid_pVDE">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="rgb2dvi_0" PORT="vid_pVDE"/>
+            <CONNECTION INSTANCE="grayscale_0" PORT="vid_pVDE"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="vid_pHSync" SIGIS="undef" SIGNAME="dvi2rgb_0_vid_pHSync">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="rgb2dvi_0" PORT="vid_pHSync"/>
+            <CONNECTION INSTANCE="grayscale_0" PORT="vid_pHSync"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="vid_pVSync" SIGIS="undef" SIGNAME="dvi2rgb_0_vid_pVSync">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="rgb2dvi_0" PORT="vid_pVSync"/>
+            <CONNECTION INSTANCE="grayscale_0" PORT="vid_pVSync"/>
           </CONNECTIONS>
         </PORT>
         <PORT CLKFREQUENCY="100000000" DIR="O" NAME="PixelClk" SIGIS="clk" SIGNAME="dvi2rgb_0_PixelClk">
           <CONNECTIONS>
             <CONNECTION INSTANCE="rgb2dvi_0" PORT="PixelClk"/>
+            <CONNECTION INSTANCE="grayscale_0" PORT="pclk"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="aPixelClkLckd" SIGIS="undef"/>
@@ -982,7 +988,7 @@
             <PORTMAP LOGICAL="DATA_N" PHYSICAL="TMDS_Data_n"/>
           </PORTMAPS>
         </BUSINTERFACE>
-        <BUSINTERFACE BUSNAME="dvi2rgb_0_RGB" NAME="RGB" TYPE="INITIATOR" VLNV="xilinx.com:interface:vid_io:1.0">
+        <BUSINTERFACE BUSNAME="__NOC__" NAME="RGB" TYPE="INITIATOR" VLNV="xilinx.com:interface:vid_io:1.0">
           <PORTMAPS>
             <PORTMAP LOGICAL="DATA" PHYSICAL="vid_pData"/>
             <PORTMAP LOGICAL="HSYNC" PHYSICAL="vid_pHSync"/>
@@ -1001,6 +1007,66 @@
           </PORTMAPS>
         </BUSINTERFACE>
       </BUSINTERFACES>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/grayscale_0" HWVERSION="1.0" INSTANCE="grayscale_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="grayscale" VLNV="xilinx.com:module_ref:grayscale:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_grayscale_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" NAME="pclk" SIGIS="undef" SIGNAME="dvi2rgb_0_PixelClk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="dvi2rgb_0" PORT="PixelClk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="sw0" SIGIS="undef" SIGNAME="External_Ports_sw0_0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="sw0_0"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="vid_pVDE" SIGIS="undef" SIGNAME="dvi2rgb_0_vid_pVDE">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="dvi2rgb_0" PORT="vid_pVDE"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="vid_pHSync" SIGIS="undef" SIGNAME="dvi2rgb_0_vid_pHSync">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="dvi2rgb_0" PORT="vid_pHSync"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="vid_pVSync" SIGIS="undef" SIGNAME="dvi2rgb_0_vid_pVSync">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="dvi2rgb_0" PORT="vid_pVSync"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="23" NAME="vid_pData_in" RIGHT="0" SIGIS="undef" SIGNAME="dvi2rgb_0_vid_pData">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="dvi2rgb_0" PORT="vid_pData"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="vid_pVDE_out" SIGIS="undef" SIGNAME="grayscale_0_vid_pVDE_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="rgb2dvi_0" PORT="vid_pVDE"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="vid_pHSync_out" SIGIS="undef" SIGNAME="grayscale_0_vid_pHSync_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="rgb2dvi_0" PORT="vid_pHSync"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="vid_pVSync_out" SIGIS="undef" SIGNAME="grayscale_0_vid_pVSync_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="rgb2dvi_0" PORT="vid_pVSync"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="23" NAME="vid_pData_out" RIGHT="0" SIGIS="undef" SIGNAME="grayscale_0_vid_pData_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="rgb2dvi_0" PORT="vid_pData"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
     </MODULE>
     <MODULE CONFIGURABLE="TRUE" COREREVISION="6" FULLNAME="/processing_system7_0" HWVERSION="5.5" INSTANCE="processing_system7_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" IS_PL="FALSE" MODTYPE="processing_system7" VLNV="xilinx.com:ip:processing_system7:5.5">
       <DOCUMENTS>
@@ -2264,24 +2330,24 @@
             <CONNECTION INSTANCE="util_vector_logic_0" PORT="Res"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="23" NAME="vid_pData" RIGHT="0" SIGIS="undef" SIGNAME="dvi2rgb_0_vid_pData">
+        <PORT DIR="I" LEFT="23" NAME="vid_pData" RIGHT="0" SIGIS="undef" SIGNAME="grayscale_0_vid_pData_out">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="dvi2rgb_0" PORT="vid_pData"/>
+            <CONNECTION INSTANCE="grayscale_0" PORT="vid_pData_out"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="vid_pVDE" SIGIS="undef" SIGNAME="dvi2rgb_0_vid_pVDE">
+        <PORT DIR="I" NAME="vid_pVDE" SIGIS="undef" SIGNAME="grayscale_0_vid_pVDE_out">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="dvi2rgb_0" PORT="vid_pVDE"/>
+            <CONNECTION INSTANCE="grayscale_0" PORT="vid_pVDE_out"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="vid_pHSync" SIGIS="undef" SIGNAME="dvi2rgb_0_vid_pHSync">
+        <PORT DIR="I" NAME="vid_pHSync" SIGIS="undef" SIGNAME="grayscale_0_vid_pHSync_out">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="dvi2rgb_0" PORT="vid_pHSync"/>
+            <CONNECTION INSTANCE="grayscale_0" PORT="vid_pHSync_out"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="vid_pVSync" SIGIS="undef" SIGNAME="dvi2rgb_0_vid_pVSync">
+        <PORT DIR="I" NAME="vid_pVSync" SIGIS="undef" SIGNAME="grayscale_0_vid_pVSync_out">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="dvi2rgb_0" PORT="vid_pVSync"/>
+            <CONNECTION INSTANCE="grayscale_0" PORT="vid_pVSync_out"/>
           </CONNECTIONS>
         </PORT>
         <PORT CLKFREQUENCY="100000000" DIR="I" NAME="PixelClk" SIGIS="clk" SIGNAME="dvi2rgb_0_PixelClk">
@@ -2299,7 +2365,7 @@
             <PORTMAP LOGICAL="DATA_N" PHYSICAL="TMDS_Data_n"/>
           </PORTMAPS>
         </BUSINTERFACE>
-        <BUSINTERFACE BUSNAME="dvi2rgb_0_RGB" NAME="RGB" TYPE="TARGET" VLNV="xilinx.com:interface:vid_io:1.0">
+        <BUSINTERFACE BUSNAME="__NOC__" NAME="RGB" TYPE="TARGET" VLNV="xilinx.com:interface:vid_io:1.0">
           <PORTMAPS>
             <PORTMAP LOGICAL="DATA" PHYSICAL="vid_pData"/>
             <PORTMAP LOGICAL="HSYNC" PHYSICAL="vid_pHSync"/>

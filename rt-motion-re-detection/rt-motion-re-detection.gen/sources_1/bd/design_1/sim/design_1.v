@@ -2,7 +2,7 @@
 //Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-//Date        : Sat May 23 14:46:35 2026
+//Date        : Fri Jun  5 10:42:11 2026
 //Host        : LAPTOP-RA34KMRV running 64-bit major release  (build 9200)
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -10,7 +10,7 @@
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=6,numReposBlks=6,numNonXlnxBlks=2,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_ps7_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "design_1.hwdef" *) 
+(* CORE_GENERATION_INFO = "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=7,numReposBlks=7,numNonXlnxBlks=2,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=1,numPkgbdBlks=0,bdsource=USER,da_ps7_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "design_1.hwdef" *) 
 module design_1
    (DDC_0_scl_i,
     DDC_0_scl_o,
@@ -47,7 +47,8 @@ module design_1
     TMDS_1_clk_p,
     TMDS_1_data_n,
     TMDS_1_data_p,
-    clk_in1_0);
+    clk_in1_0,
+    sw0_0);
   (* X_INTERFACE_INFO = "xilinx.com:interface:iic:1.0 DDC_0 SCL_I" *) input DDC_0_scl_i;
   (* X_INTERFACE_INFO = "xilinx.com:interface:iic:1.0 DDC_0 SCL_O" *) output DDC_0_scl_o;
   (* X_INTERFACE_INFO = "xilinx.com:interface:iic:1.0 DDC_0 SCL_T" *) output DDC_0_scl_t;
@@ -84,6 +85,7 @@ module design_1
   (* X_INTERFACE_INFO = "digilentinc.com:interface:tmds:1.0 TMDS_1 DATA_N" *) output [2:0]TMDS_1_data_n;
   (* X_INTERFACE_INFO = "digilentinc.com:interface:tmds:1.0 TMDS_1 DATA_P" *) output [2:0]TMDS_1_data_p;
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.CLK_IN1_0 CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.CLK_IN1_0, CLK_DOMAIN design_1_clk_in1_0, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0" *) input clk_in1_0;
+  input sw0_0;
 
   wire TMDS_0_1_CLK_N;
   wire TMDS_0_1_CLK_P;
@@ -98,11 +100,15 @@ module design_1
   wire dvi2rgb_0_DDC_SDA_O;
   wire dvi2rgb_0_DDC_SDA_T;
   wire dvi2rgb_0_PixelClk;
-  wire dvi2rgb_0_RGB_ACTIVE_VIDEO;
-  wire [23:0]dvi2rgb_0_RGB_DATA;
-  wire dvi2rgb_0_RGB_HSYNC;
-  wire dvi2rgb_0_RGB_VSYNC;
   wire dvi2rgb_0_pLocked;
+  wire [23:0]dvi2rgb_0_vid_pData;
+  wire dvi2rgb_0_vid_pHSync;
+  wire dvi2rgb_0_vid_pVDE;
+  wire dvi2rgb_0_vid_pVSync;
+  wire [23:0]grayscale_0_vid_pData_out;
+  wire grayscale_0_vid_pHSync_out;
+  wire grayscale_0_vid_pVDE_out;
+  wire grayscale_0_vid_pVSync_out;
   wire [14:0]processing_system7_0_DDR_ADDR;
   wire [2:0]processing_system7_0_DDR_BA;
   wire processing_system7_0_DDR_CAS_N;
@@ -129,6 +135,7 @@ module design_1
   wire rgb2dvi_0_TMDS_CLK_P;
   wire [2:0]rgb2dvi_0_TMDS_DATA_N;
   wire [2:0]rgb2dvi_0_TMDS_DATA_P;
+  wire sw0_0_1;
   wire [0:0]util_vector_logic_0_Res;
   wire [0:0]xlconstant_0_dout;
 
@@ -147,6 +154,7 @@ module design_1
   assign clk_in1_0_1 = clk_in1_0;
   assign dvi2rgb_0_DDC_SCL_I = DDC_0_scl_i;
   assign dvi2rgb_0_DDC_SDA_I = DDC_0_sda_i;
+  assign sw0_0_1 = sw0_0;
   design_1_clk_wiz_0_0 clk_wiz_0
        (.clk_in1(clk_in1_0_1),
         .clk_out1(clk_wiz_0_clk_out1),
@@ -167,10 +175,21 @@ module design_1
         .aRst(xlconstant_0_dout),
         .pLocked(dvi2rgb_0_pLocked),
         .pRst(xlconstant_0_dout),
-        .vid_pData(dvi2rgb_0_RGB_DATA),
-        .vid_pHSync(dvi2rgb_0_RGB_HSYNC),
-        .vid_pVDE(dvi2rgb_0_RGB_ACTIVE_VIDEO),
-        .vid_pVSync(dvi2rgb_0_RGB_VSYNC));
+        .vid_pData(dvi2rgb_0_vid_pData),
+        .vid_pHSync(dvi2rgb_0_vid_pHSync),
+        .vid_pVDE(dvi2rgb_0_vid_pVDE),
+        .vid_pVSync(dvi2rgb_0_vid_pVSync));
+  design_1_grayscale_0_0 grayscale_0
+       (.pclk(dvi2rgb_0_PixelClk),
+        .sw0(sw0_0_1),
+        .vid_pData_in(dvi2rgb_0_vid_pData),
+        .vid_pData_out(grayscale_0_vid_pData_out),
+        .vid_pHSync(dvi2rgb_0_vid_pHSync),
+        .vid_pHSync_out(grayscale_0_vid_pHSync_out),
+        .vid_pVDE(dvi2rgb_0_vid_pVDE),
+        .vid_pVDE_out(grayscale_0_vid_pVDE_out),
+        .vid_pVSync(dvi2rgb_0_vid_pVSync),
+        .vid_pVSync_out(grayscale_0_vid_pVSync_out));
   design_1_processing_system7_0_0 processing_system7_0
        (.DDR_Addr(DDR_addr[14:0]),
         .DDR_BankAddr(DDR_ba[2:0]),
@@ -213,10 +232,10 @@ module design_1
         .TMDS_Data_n(rgb2dvi_0_TMDS_DATA_N),
         .TMDS_Data_p(rgb2dvi_0_TMDS_DATA_P),
         .aRst(util_vector_logic_0_Res),
-        .vid_pData(dvi2rgb_0_RGB_DATA),
-        .vid_pHSync(dvi2rgb_0_RGB_HSYNC),
-        .vid_pVDE(dvi2rgb_0_RGB_ACTIVE_VIDEO),
-        .vid_pVSync(dvi2rgb_0_RGB_VSYNC));
+        .vid_pData(grayscale_0_vid_pData_out),
+        .vid_pHSync(grayscale_0_vid_pHSync_out),
+        .vid_pVDE(grayscale_0_vid_pVDE_out),
+        .vid_pVSync(grayscale_0_vid_pVSync_out));
   design_1_util_vector_logic_0_0 util_vector_logic_0
        (.Op1(dvi2rgb_0_pLocked),
         .Res(util_vector_logic_0_Res));

@@ -6,22 +6,25 @@
 # Block Designs: bd/design_1/design_1.bd
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1 || ORIG_REF_NAME==design_1} -quiet] -quiet
 
-# IP: bd/design_1/ip/design_1_processing_system7_0_0/design_1_processing_system7_0_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_processing_system7_0_0 || ORIG_REF_NAME==design_1_processing_system7_0_0} -quiet] -quiet
-
-# IP: bd/design_1/ip/design_1_dvi2rgb_0_0/design_1_dvi2rgb_0_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_dvi2rgb_0_0 || ORIG_REF_NAME==design_1_dvi2rgb_0_0} -quiet] -quiet
-
-# IP: bd/design_1/ip/design_1_rgb2dvi_0_0/design_1_rgb2dvi_0_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_rgb2dvi_0_0 || ORIG_REF_NAME==design_1_rgb2dvi_0_0} -quiet] -quiet
-
 # IP: bd/design_1/ip/design_1_util_vector_logic_0_0/design_1_util_vector_logic_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_util_vector_logic_0_0 || ORIG_REF_NAME==design_1_util_vector_logic_0_0} -quiet] -quiet
+
+# IP: bd/design_1/ip/design_1_xlconstant_0_0/design_1_xlconstant_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_xlconstant_0_0 || ORIG_REF_NAME==design_1_xlconstant_0_0} -quiet] -quiet
 
 # IP: bd/design_1/ip/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_clk_wiz_0_0 || ORIG_REF_NAME==design_1_clk_wiz_0_0} -quiet] -quiet
 
-# IP: bd/design_1/ip/design_1_xlconstant_0_0/design_1_xlconstant_0_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_xlconstant_0_0 || ORIG_REF_NAME==design_1_xlconstant_0_0} -quiet] -quiet
+# IP: bd/design_1/ip/design_1_dvi2rgb_0_0/design_1_dvi2rgb_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_dvi2rgb_0_0 || ORIG_REF_NAME==design_1_dvi2rgb_0_0} -quiet] -quiet
+
+# IP: bd/design_1/ip/design_1_processing_system7_0_0/design_1_processing_system7_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_processing_system7_0_0 || ORIG_REF_NAME==design_1_processing_system7_0_0} -quiet] -quiet
+
+# IP: bd/design_1/ip/design_1_rgb2dvi_0_0/design_1_rgb2dvi_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_rgb2dvi_0_0 || ORIG_REF_NAME==design_1_rgb2dvi_0_0} -quiet] -quiet
+
+# IP: bd/design_1/ip/design_1_grayscale_0_0/design_1_grayscale_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==design_1_grayscale_0_0 || ORIG_REF_NAME==design_1_grayscale_0_0} -quiet] -quiet
 
 # XDC: e:/shabesa/Carleton/cu-fpga-club-s26-project-rt-motion-tracking-re-detection/rt-motion-re-detection/rt-motion-re-detection.gen/sources_1/bd/design_1/design_1_ooc.xdc

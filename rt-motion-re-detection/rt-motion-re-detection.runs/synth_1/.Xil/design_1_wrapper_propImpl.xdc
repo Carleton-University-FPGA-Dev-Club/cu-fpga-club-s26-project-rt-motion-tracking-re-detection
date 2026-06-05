@@ -1,6 +1,8 @@
 set_property SRC_FILE_INFO {cfile:E:/shabesa/Carleton/cu-fpga-club-s26-project-rt-motion-tracking-re-detection/rt-motion-re-detection/rt-motion-re-detection.srcs/constrs_1/new/ZyboZ20.xdc rfile:../../../rt-motion-re-detection.srcs/constrs_1/new/ZyboZ20.xdc id:1} [current_design]
 set_property src_info {type:XDC file:1 line:8 export:INPUT save:INPUT read:READ} [current_design]
 set_property -dict { PACKAGE_PIN K17   IOSTANDARD LVCMOS33 } [get_ports { clk_in1_0 }]; #IO_L12P_T1_MRCC_35 Sch=sysclk
+set_property src_info {type:XDC file:1 line:13 export:INPUT save:INPUT read:READ} [current_design]
+set_property -dict { PACKAGE_PIN G15   IOSTANDARD LVCMOS33 } [get_ports { sw0_0 }]; #IO_L19N_T3_VREF_35 Sch=sw[0]
 set_property src_info {type:XDC file:1 line:71 export:INPUT save:INPUT read:READ} [current_design]
 set_property -dict { PACKAGE_PIN W18   IOSTANDARD LVCMOS33 } [get_ports { DDC_0_scl_io }]; #IO_L22P_T3_34 Sch=hdmi_rx_scl
 set_property src_info {type:XDC file:1 line:72 export:INPUT save:INPUT read:READ} [current_design]
@@ -37,5 +39,7 @@ set_property src_info {type:XDC file:1 line:96 export:INPUT save:INPUT read:READ
 set_property -dict { PACKAGE_PIN A20   IOSTANDARD TMDS_33     } [get_ports { TMDS_1_data_n[2] }]; #IO_L2N_T0_AD8N_35 Sch=hdmi_tx_n[2]
 set_property src_info {type:XDC file:1 line:97 export:INPUT save:INPUT read:READ} [current_design]
 set_property -dict { PACKAGE_PIN B19   IOSTANDARD TMDS_33     } [get_ports { TMDS_1_data_p[2] }]; #IO_L2P_T0_AD8P_35 Sch=hdmi_tx_p[2]
-set_property src_info {type:XDC file:1 line:209 export:INPUT save:INPUT read:READ} [current_design]
-create_waiver -type TIMING -id {WPWS-8} -objects [get_pins design_1_i/rgb2dvi_0/U0/ClockGenInternal.ClockGenX/SerialClk_BUFG_inst/I] -description "rgb2dvi SerialClk BUFG runs at 600MHz by design"
+set_property src_info {type:XDC file:1 line:208 export:INPUT save:INPUT read:READ} [current_design]
+set_false_path -from [get_clocks clk_out1_design_1_clk_wiz_0_0] -to   [get_clocks clk_out1_design_1_clk_wiz_0_0_1]
+set_property src_info {type:XDC file:1 line:210 export:INPUT save:INPUT read:READ} [current_design]
+set_false_path -from [get_clocks clk_out1_design_1_clk_wiz_0_0_1] -to   [get_clocks clk_out1_design_1_clk_wiz_0_0]

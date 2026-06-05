@@ -10,7 +10,7 @@ create_clock -add -name sys_clk_pin -period 8.00 -waveform {0 4} [get_ports { cl
 
 
 ##Switches
-#set_property -dict { PACKAGE_PIN G15   IOSTANDARD LVCMOS33 } [get_ports { sw[0] }]; #IO_L19N_T3_VREF_35 Sch=sw[0]
+set_property -dict { PACKAGE_PIN G15   IOSTANDARD LVCMOS33 } [get_ports { sw0_0 }]; #IO_L19N_T3_VREF_35 Sch=sw[0]
 #set_property -dict { PACKAGE_PIN P15   IOSTANDARD LVCMOS33 } [get_ports { sw[1] }]; #IO_L24P_T3_34 Sch=sw[1]
 #set_property -dict { PACKAGE_PIN W13   IOSTANDARD LVCMOS33 } [get_ports { sw[2] }]; #IO_L4N_T0_34 Sch=sw[2]
 #set_property -dict { PACKAGE_PIN T16   IOSTANDARD LVCMOS33 } [get_ports { sw[3] }]; #IO_L9P_T1_DQS_34 Sch=sw[3]
@@ -203,12 +203,12 @@ set_false_path -from [get_clocks sys_clk_pin] -to [get_clocks tmds_rx_clk];
 #set_property PACKAGE_PIN W9 [get_ports {netic19_w9}]; #IO_L16N_T2_13
 #set_property PACKAGE_PIN Y9 [get_ports {netic19_y9}]; #IO_L14P_T2_SRCC_13
 
-# Waive SerialClk BUFG min period on rgb2dvi
-# SerialClkIO = 600MHz (5x pixel clock) into BUFG - by design in Digilent rgb2dvi IP
-# BUFG min period spec is 2.155ns but 1.667ns is used intentionally for TMDS serialization
-create_waiver -type TIMING -id {WPWS-8} \
-  -objects [get_pins design_1_i/rgb2dvi_0/U0/ClockGenInternal.ClockGenX/SerialClk_BUFG_inst/I] \
-  -description "rgb2dvi SerialClk BUFG runs at 600MHz by design"
+# clk_wiz outputs have no common primary clock after grayscale added
+# These are the same physical clock seen on two branches - declare as false paths
+set_false_path -from [get_clocks clk_out1_design_1_clk_wiz_0_0] \
+               -to   [get_clocks clk_out1_design_1_clk_wiz_0_0_1]
+set_false_path -from [get_clocks clk_out1_design_1_clk_wiz_0_0_1] \
+               -to   [get_clocks clk_out1_design_1_clk_wiz_0_0]
 
 # Downgrade PDRC-34 to warning (covers any remaining pulse width DRC checks)
 set_property SEVERITY {Warning} [get_drc_checks PDRC-34]

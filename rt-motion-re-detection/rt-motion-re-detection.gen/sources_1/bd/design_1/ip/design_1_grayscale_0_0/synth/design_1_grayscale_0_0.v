@@ -65,7 +65,8 @@ module design_1_grayscale_0_0 (
   vid_pVDE_out,
   vid_pHSync_out,
   vid_pVSync_out,
-  vid_pData_out
+  vid_pData_out,
+  led0
 );
 
 input wire pclk;
@@ -78,6 +79,7 @@ output wire vid_pVDE_out;
 output wire vid_pHSync_out;
 output wire vid_pVSync_out;
 output wire [23 : 0] vid_pData_out;
+output wire led0;
 
   grayscale inst (
     .pclk(pclk),
@@ -89,6 +91,7 @@ output wire [23 : 0] vid_pData_out;
     .vid_pVDE_out(vid_pVDE_out),
     .vid_pHSync_out(vid_pHSync_out),
     .vid_pVSync_out(vid_pVSync_out),
-    .vid_pData_out(vid_pData_out)
+    .vid_pData_out(vid_pData_out),
+    .led0(led0)
   );
 endmodule

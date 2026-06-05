@@ -4,8 +4,8 @@
 // Tool Version: Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
 // Date        : Fri Jun  5 12:54:21 2026
 // Host        : LAPTOP-RA34KMRV running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim
-//               e:/shabesa/Carleton/cu-fpga-club-s26-project-rt-motion-tracking-re-detection/rt-motion-re-detection/rt-motion-re-detection.gen/sources_1/bd/design_1/ip/design_1_grayscale_0_0/design_1_grayscale_0_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix -prefix
+//               decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_ design_1_grayscale_0_0_sim_netlist.v
 // Design      : design_1_grayscale_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -16,7 +16,7 @@
 (* CHECK_LICENSE_TYPE = "design_1_grayscale_0_0,grayscale,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
 (* X_CORE_INFO = "grayscale,Vivado 2023.1" *) 
 (* NotValidForBitStream *)
-module design_1_grayscale_0_0
+module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix
    (pclk,
     sw0,
     vid_pVDE,
@@ -52,7 +52,7 @@ module design_1_grayscale_0_0
   wire vid_pVSync_out;
 
   assign led0 = sw0;
-  design_1_grayscale_0_0_grayscale inst
+  decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_grayscale inst
        (.pclk(pclk),
         .sw0(sw0),
         .vid_pData_in(vid_pData_in),
@@ -65,8 +65,7 @@ module design_1_grayscale_0_0
         .vid_pVSync_out(vid_pVSync_out));
 endmodule
 
-(* ORIG_REF_NAME = "grayscale" *) 
-module design_1_grayscale_0_0_grayscale
+module decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_grayscale
    (vid_pVDE_out,
     vid_pHSync_out,
     vid_pVSync_out,

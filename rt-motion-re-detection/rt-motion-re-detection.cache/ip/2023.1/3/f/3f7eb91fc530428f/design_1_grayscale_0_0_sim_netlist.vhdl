@@ -4,8 +4,8 @@
 -- Tool Version: Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
 -- Date        : Fri Jun  5 12:54:21 2026
 -- Host        : LAPTOP-RA34KMRV running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim
---               e:/shabesa/Carleton/cu-fpga-club-s26-project-rt-motion-tracking-re-detection/rt-motion-re-detection/rt-motion-re-detection.gen/sources_1/bd/design_1/ip/design_1_grayscale_0_0/design_1_grayscale_0_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix -prefix
+--               decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_ design_1_grayscale_0_0_sim_netlist.vhdl
 -- Design      : design_1_grayscale_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -15,7 +15,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity design_1_grayscale_0_0_grayscale is
+entity decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_grayscale is
   port (
     vid_pVDE_out : out STD_LOGIC;
     vid_pHSync_out : out STD_LOGIC;
@@ -28,11 +28,9 @@ entity design_1_grayscale_0_0_grayscale is
     vid_pVSync : in STD_LOGIC;
     sw0 : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_grayscale_0_0_grayscale : entity is "grayscale";
-end design_1_grayscale_0_0_grayscale;
+end decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_grayscale;
 
-architecture STRUCTURE of design_1_grayscale_0_0_grayscale is
+architecture STRUCTURE of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_grayscale is
   signal C : STD_LOGIC_VECTOR ( 14 downto 1 );
   signal p_0_in : STD_LOGIC_VECTOR ( 23 downto 0 );
   signal y_full : STD_LOGIC_VECTOR ( 15 downto 8 );
@@ -2218,7 +2216,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity design_1_grayscale_0_0 is
+entity decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix is
   port (
     pclk : in STD_LOGIC;
     sw0 : in STD_LOGIC;
@@ -2233,23 +2231,23 @@ entity design_1_grayscale_0_0 is
     led0 : out STD_LOGIC
   );
   attribute NotValidForBitStream : boolean;
-  attribute NotValidForBitStream of design_1_grayscale_0_0 : entity is true;
+  attribute NotValidForBitStream of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix : entity is true;
   attribute CHECK_LICENSE_TYPE : string;
-  attribute CHECK_LICENSE_TYPE of design_1_grayscale_0_0 : entity is "design_1_grayscale_0_0,grayscale,{}";
+  attribute CHECK_LICENSE_TYPE of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix : entity is "design_1_grayscale_0_0,grayscale,{}";
   attribute DowngradeIPIdentifiedWarnings : string;
-  attribute DowngradeIPIdentifiedWarnings of design_1_grayscale_0_0 : entity is "yes";
+  attribute DowngradeIPIdentifiedWarnings of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix : entity is "yes";
   attribute IP_DEFINITION_SOURCE : string;
-  attribute IP_DEFINITION_SOURCE of design_1_grayscale_0_0 : entity is "module_ref";
+  attribute IP_DEFINITION_SOURCE of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix : entity is "module_ref";
   attribute X_CORE_INFO : string;
-  attribute X_CORE_INFO of design_1_grayscale_0_0 : entity is "grayscale,Vivado 2023.1";
-end design_1_grayscale_0_0;
+  attribute X_CORE_INFO of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix : entity is "grayscale,Vivado 2023.1";
+end decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix;
 
-architecture STRUCTURE of design_1_grayscale_0_0 is
+architecture STRUCTURE of decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix is
   signal \^sw0\ : STD_LOGIC;
 begin
   \^sw0\ <= sw0;
   led0 <= \^sw0\;
-inst: entity work.design_1_grayscale_0_0_grayscale
+inst: entity work.decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_grayscale
      port map (
       pclk => pclk,
       sw0 => \^sw0\,

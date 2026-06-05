@@ -2,7 +2,7 @@
 //Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-//Date        : Fri Jun  5 10:42:11 2026
+//Date        : Fri Jun  5 12:53:19 2026
 //Host        : LAPTOP-RA34KMRV running 64-bit major release  (build 9200)
 //Command     : generate_target design_1_wrapper.bd
 //Design      : design_1_wrapper
@@ -43,6 +43,7 @@ module design_1_wrapper
     TMDS_1_data_n,
     TMDS_1_data_p,
     clk_in1_0,
+    led0_0,
     sw0_0);
   inout DDC_0_scl_io;
   inout DDC_0_sda_io;
@@ -76,6 +77,7 @@ module design_1_wrapper
   output [2:0]TMDS_1_data_n;
   output [2:0]TMDS_1_data_p;
   input clk_in1_0;
+  output led0_0;
   input sw0_0;
 
   wire DDC_0_scl_i;
@@ -116,6 +118,7 @@ module design_1_wrapper
   wire [2:0]TMDS_1_data_n;
   wire [2:0]TMDS_1_data_p;
   wire clk_in1_0;
+  wire led0_0;
   wire sw0_0;
 
   IOBUF DDC_0_scl_iobuf
@@ -165,5 +168,6 @@ module design_1_wrapper
         .TMDS_1_data_n(TMDS_1_data_n),
         .TMDS_1_data_p(TMDS_1_data_p),
         .clk_in1_0(clk_in1_0),
+        .led0_0(led0_0),
         .sw0_0(sw0_0));
 endmodule

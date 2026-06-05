@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Jun  5 10:42:12 2026" VIVADOVERSION="2023.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Jun  5 12:53:20 2026" VIVADOVERSION="2023.1">
 
   <SYSTEMINFO ARCH="zynq" BOARD="digilentinc.com:zybo-z7-20:part0:1.2" DEVICE="7z020" NAME="design_1" PACKAGE="clg400" SPEEDGRADE="-1"/>
 
@@ -187,6 +187,11 @@
     <PORT DIR="I" NAME="sw0_0" SIGIS="undef" SIGNAME="External_Ports_sw0_0">
       <CONNECTIONS>
         <CONNECTION INSTANCE="grayscale_0" PORT="sw0"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="led0_0" SIGIS="undef" SIGNAME="grayscale_0_led0">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="grayscale_0" PORT="led0"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
@@ -1063,6 +1068,11 @@
         <PORT DIR="O" LEFT="23" NAME="vid_pData_out" RIGHT="0" SIGIS="undef" SIGNAME="grayscale_0_vid_pData_out">
           <CONNECTIONS>
             <CONNECTION INSTANCE="rgb2dvi_0" PORT="vid_pData"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="led0" SIGIS="undef" SIGNAME="grayscale_0_led0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="led0_0"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>

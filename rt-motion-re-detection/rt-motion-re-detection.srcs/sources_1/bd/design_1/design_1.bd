@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x10D19F8D1E0EAEDD",
+      "boundary_crc": "0x972F3B8D90457636",
       "device": "xc7z020clg400-1",
       "gen_directory": "../../../../rt-motion-re-detection.gen/sources_1/bd/design_1",
       "name": "design_1",
@@ -302,6 +302,9 @@
       },
       "sw0_0": {
         "direction": "I"
+      },
+      "led0_0": {
+        "direction": "O"
       }
     },
     "components": {
@@ -1611,6 +1614,9 @@
             "direction": "O",
             "left": "23",
             "right": "0"
+          },
+          "led0": {
+            "direction": "O"
           }
         }
       }
@@ -1695,6 +1701,12 @@
         "ports": [
           "dvi2rgb_0/vid_pVSync",
           "grayscale_0/vid_pVSync"
+        ]
+      },
+      "grayscale_0_led0": {
+        "ports": [
+          "grayscale_0/led0",
+          "led0_0"
         ]
       },
       "grayscale_0_vid_pData_out": {

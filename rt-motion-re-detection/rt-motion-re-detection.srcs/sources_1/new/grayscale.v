@@ -32,7 +32,9 @@ module grayscale (
     output reg         vid_pVDE_out,
     output reg         vid_pHSync_out,
     output reg         vid_pVSync_out,
-    output reg  [23:0] vid_pData_out
+    output reg  [23:0] vid_pData_out,
+    
+    output wire        led0             // LED0: 1=grayscale, 0=passthrough
 );
 
     wire [7:0] r = vid_pData_in[23:16];
@@ -42,6 +44,8 @@ module grayscale (
     // Y = (77*R + 150*G + 29*B) >> 8
     wire [15:0] y_full = (77 * r) + (150 * g) + (29 * b);
     wire [7:0]  y      = y_full[15:8];
+    
+    assign led0 = sw0;
 
     always @(posedge pclk) begin
         vid_pVDE_out   <= vid_pVDE;

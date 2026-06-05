@@ -2,7 +2,7 @@
 //Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
-//Date        : Fri Jun  5 10:42:11 2026
+//Date        : Fri Jun  5 12:53:18 2026
 //Host        : LAPTOP-RA34KMRV running 64-bit major release  (build 9200)
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -48,6 +48,7 @@ module design_1
     TMDS_1_data_n,
     TMDS_1_data_p,
     clk_in1_0,
+    led0_0,
     sw0_0);
   (* X_INTERFACE_INFO = "xilinx.com:interface:iic:1.0 DDC_0 SCL_I" *) input DDC_0_scl_i;
   (* X_INTERFACE_INFO = "xilinx.com:interface:iic:1.0 DDC_0 SCL_O" *) output DDC_0_scl_o;
@@ -85,6 +86,7 @@ module design_1
   (* X_INTERFACE_INFO = "digilentinc.com:interface:tmds:1.0 TMDS_1 DATA_N" *) output [2:0]TMDS_1_data_n;
   (* X_INTERFACE_INFO = "digilentinc.com:interface:tmds:1.0 TMDS_1 DATA_P" *) output [2:0]TMDS_1_data_p;
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.CLK_IN1_0 CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.CLK_IN1_0, CLK_DOMAIN design_1_clk_in1_0, FREQ_HZ 125000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0" *) input clk_in1_0;
+  output led0_0;
   input sw0_0;
 
   wire TMDS_0_1_CLK_N;
@@ -105,6 +107,7 @@ module design_1
   wire dvi2rgb_0_vid_pHSync;
   wire dvi2rgb_0_vid_pVDE;
   wire dvi2rgb_0_vid_pVSync;
+  wire grayscale_0_led0;
   wire [23:0]grayscale_0_vid_pData_out;
   wire grayscale_0_vid_pHSync_out;
   wire grayscale_0_vid_pVDE_out;
@@ -154,6 +157,7 @@ module design_1
   assign clk_in1_0_1 = clk_in1_0;
   assign dvi2rgb_0_DDC_SCL_I = DDC_0_scl_i;
   assign dvi2rgb_0_DDC_SDA_I = DDC_0_sda_i;
+  assign led0_0 = grayscale_0_led0;
   assign sw0_0_1 = sw0_0;
   design_1_clk_wiz_0_0 clk_wiz_0
        (.clk_in1(clk_in1_0_1),
@@ -180,7 +184,8 @@ module design_1
         .vid_pVDE(dvi2rgb_0_vid_pVDE),
         .vid_pVSync(dvi2rgb_0_vid_pVSync));
   design_1_grayscale_0_0 grayscale_0
-       (.pclk(dvi2rgb_0_PixelClk),
+       (.led0(grayscale_0_led0),
+        .pclk(dvi2rgb_0_PixelClk),
         .sw0(sw0_0_1),
         .vid_pData_in(dvi2rgb_0_vid_pData),
         .vid_pData_out(grayscale_0_vid_pData_out),
